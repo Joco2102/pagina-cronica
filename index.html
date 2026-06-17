@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PORTAL DE NOTICIAS - ESTILO "CRÓNICA"  (versión 2, en archivos separados)
+  ============================================================================
+  ARCHIVO: index.html  ->  SOLO la ESTRUCTURA (el "esqueleto" en HTML).
+    - El CSS vive en  style.css  (se enlaza en el <head> con <link>).
+    - El JS  vive en  script.js  (se enlaza al final del <body> con <script>).
+
+  IMPORTANTE: los tres archivos deben estar en la MISMA carpeta para que las
+  rutas relativas ("style.css" y "script.js") funcionen.
+
+  CONVENCIÓN DE CARRUSELES (la usamos en toda la página):
+    <div class="carrusel">                     contenedor (posiciona flechas)
+       <button class="carrusel-flecha anterior">   flecha previa
+       <div class="carrusel-pista"> ...items... </div>   la fila/columna con scroll
+       <button class="carrusel-flecha siguiente">  flecha siguiente
+    </div>
+    - Si el carrusel es VERTICAL, agregamos la clase "carrusel--vertical".
+
+  LOGOS: en todos lados donde iría el logo de Crónica dejamos un PLACEHOLDER
+  (un recuadro punteado "TU LOGO") para que insertes tu propio logo después.
+  ============================================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crónica — Portal de Noticias (réplica didáctica)</title>
+
+  <!-- Enlace al archivo de estilos externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =======================================================================
+       1. HEADER Y NAVEGACIÓN
+       ======================================================================= -->
+  <header>
+    <!-- 1A. Cinta superior roja -->
+    <div class="contenedor">
+      <div class="barra-superior">
+        <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">&#9776;</button>
+
+        <!-- PLACEHOLDER PARA TU LOGO (centrado). Reemplazá este div por tu <img>. -->
+        <div class="logo-placeholder" title="Insertá acá tu logo">logo cronica</div>
+
+        <form class="buscador" onsubmit="return false;">
+          <input type="text" placeholder="Buscar..." />
+          <button type="submit" aria-label="Buscar">&#128269;</button>
+        </form>
+
+        <div class="zona-login">
+          <div class="avatar"></div>
+          <a href="#">sing in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1B. Submenú "TEMAS DE HOY" como CARRUSEL horizontal -->
+    <nav class="contenedor">
+      <div class="submenu" id="submenu">
+        <span class="submenu-etiqueta">TEMAS DE HOY :</span>
+
+        <!-- Reutilizamos la estructura de carrusel para que se pueda deslizar -->
+        <div class="carrusel submenu-carrusel">
+          <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+          <div class="carrusel-pista submenu-pista">
+            <a href="#" class="submenu-item">Política</a>
+            <a href="#" class="submenu-item">Policiales</a>
+            <a href="#" class="submenu-item">Economía</a>
+            <a href="#" class="submenu-item">Clima</a>
+            <a href="#" class="submenu-item">Turismo</a>
+            <a href="#" class="submenu-item">Deportes</a>
+            <a href="#" class="submenu-item">Espectáculos</a>
+            <a href="#" class="submenu-item">Mundo</a>
+          </div>
+          <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1C. Ticker financiero -->
+    <div class="ticker">
+      <div class="contenedor ticker-fila">
+        <span>14° Buenos Aires</span>
+        <span>Dólar Oficial: $1464,95</span>
+        <span>Blue: $1450,00</span>
+        <span>Dólar CCL: $1508,42</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         2. HERO - ÚLTIMAS NOTICIAS / HACE INSTANTES
+         ===================================================================== -->
+    <section class="contenedor">
+      <div class="hero">
+
+        <!-- Columna izquierda: video en vivo -->
+        <div class="hero-vivo">
+          <h2>ÚLTIMAS NOTICIAS - EN VIVO</h2>
+          <div class="video">
+            <span class="etiqueta-live">LIVE</span>
+            <img src="https://via.placeholder.com/720x460?text=EN+VIVO" alt="Transmisión en vivo" />
+          </div>
+        </div>
+
+        <!-- Columna derecha: CARRUSEL VERTICAL (se desplaza hacia abajo) -->
+        <div class="hero-instantes">
+          <h2>HACE INSTANTES - EN VIVO</h2>
+
+          <div class="carrusel carrusel--vertical">
+            <button class="carrusel-flecha anterior" aria-label="Subir">&#8593;</button>
+
+            <div class="carrusel-pista instantes-pista">
+              <article class="item-noticia">
+                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <div>
+                  <h3>Paritaria universitaria: el Gobierno y los gremios llegaron a un acuerdo por aumento para docentes y no docentes</h3>
+                  <span class="hashtag">#SALARIOS</span>
+                </div>
+              </article>
+              <article class="item-noticia">
+                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <div>
+                  <h3>Argentina rechaza el proyecto petrolero británico Sea Lion en las Islas Malvinas y advierte acciones legales</h3>
+                  <span class="hashtag">#MALVINAS</span>
+                </div>
+              </article>
+              <article class="item-noticia">
+                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <div>
+                  <h3>Reclamo en Berazategui: vecinos se resisten a un desalojo en conflicto</h3>
+                  <span class="hashtag">#RECLAMO</span>
+                </div>
+              </article>
+              <article class="item-noticia">
+                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <div>
+                  <h3>Suba de tarifas: cómo impactará en las facturas de luz y gas este mes</h3>
+                  <span class="hashtag">#TARIFAS</span>
+                </div>
+              </article>
+            </div>
+
+            <button class="carrusel-flecha siguiente" aria-label="Bajar">&#8595;</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. NOTICIAS DEL MOMENTO (CARRUSEL HORIZONTAL)
+         ===================================================================== -->
+    <section class="contenedor">
+      <h2 class="titulo-seccion">Noticias del momento</h2>
+
+      <div class="carrusel">
+        <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+        <div class="carrusel-pista">
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Accidente" alt="" />
+            <div class="card-cuerpo">
+              <h3>Se bajó del coche para pelear con un motociclista, se olvidó de poner el freno de mano y chocó al auto de atrás</h3>
+              <span class="hashtag">#ACCIDENTES</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Educacion" alt="" />
+            <div class="card-cuerpo">
+              <h3>Luego de tres años de conflicto, el Gobierno y las universidades firmaron un acuerdo por aumento de fondos y salarios</h3>
+              <span class="hashtag">#EDUCACIÓN</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Inflacion" alt="" />
+            <div class="card-cuerpo">
+              <h3>Este jueves se conocerá la inflación de mayo: la estimación de las consultoras privadas</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Gaspi" alt="" />
+            <div class="card-cuerpo">
+              <h3>La estremecedora historia familiar de Gaspi y una verdad sobre su mamá que emociona hasta las lágrimas</h3>
+              <span class="hashtag">#GASPI</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Politica" alt="" />
+            <div class="card-cuerpo">
+              <h3>El Gobierno le advirtió a los empresarios que "no apuesten a una devaluación para salvarse"</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+        </div>
+        <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. TAPAS DE LA SEMANA (CARRUSEL sobre fondo rojo)
+         ===================================================================== -->
+    <section class="bloque-rojo">
+      <div class="contenedor">
+        <h2 class="titulo-seccion titulo-blanco">Tapas de la semana</h2>
+
+        <div class="carrusel">
+          <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+          <div class="carrusel-pista">
+            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+1" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+2" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+3" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+4" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+5" alt="Tapa de diario" /></article>
+          </div>
+          <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. POLICIALES + CLIPS POLICIALES-VIVO
+         ---------------------------------------------------------------------
+         CORRECCIONES:
+         - La grilla superior tiene 2 columnas: POLICIALES (izq) y CLIPS (der).
+         - El carrusel de noticias chicas va FUERA de la grilla, como hermano
+           directo dentro de .contenedor, por eso ocupa TODO el ancho.
+         ===================================================================== -->
+    <section class="contenedor">
+      <div class="policiales-grid">
+
+        <!-- Columna izquierda: noticia principal de POLICIALES -->
+        <div class="col-min">
+          <h2 class="titulo-seccion">Policiales</h2>
+          <article class="noticia-principal">
+            <img src="https://via.placeholder.com/640x400?text=Policiales" alt="" />
+            <div class="cuerpo">
+              <h3>El Gobierno le advirtió a los empresarios que "no apuesten a una devaluación para salvarse"</h3>
+              <span class="hashtag">#INFLACION</span>
+              <a href="#" class="enlace-mas">MÁS...</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Columna derecha: CLIPS (rojo) con carrusel interno acotado -->
+        <div class="clips-vivo col-min">
+          <h2>CLIPS POLICIALES-VIVO</h2>
+          <div class="carrusel">
+            <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+            <div class="carrusel-pista">
+              <article class="card-vertical">
+                <div class="placeholder"></div>
+                <button class="boton">BOTON</button>
+              </article>
+              <article class="card-vertical">
+                <div class="placeholder"></div>
+                <button class="boton">BOTON</button>
+              </article>
+              <article class="card-vertical">
+                <div class="placeholder"></div>
+                <button class="boton">BOTON</button>
+              </article>
+            </div>
+            <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carrusel de noticias chicas: FUERA de la grilla = ancho completo -->
+      <div class="carrusel carrusel-policiales">
+        <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+        <div class="carrusel-pista">
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Cocaina" alt="" />
+            <div class="card-cuerpo">
+              <h3>Enterró 60 kilos de cocaína en el patio de su mamá: la mujer se desmayó en el operativo y él fue detenido</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Colectivo" alt="" />
+            <div class="card-cuerpo">
+              <h3>Un pasajero le fracturó la mandíbula a golpes a un colectivero porque no le abrió la puerta para bajarse</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Robo" alt="" />
+            <div class="card-cuerpo">
+              <h3>¡Video! Así rompió una vidriera a golpes para robar 300 mil pesos en pan y quesos</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Mendoza" alt="" />
+            <div class="card-cuerpo">
+              <h3>En Mendoza, tomaron a una estudiante del cuello para someterla</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Policial" alt="" />
+            <div class="card-cuerpo">
+              <h3>Detuvieron a una banda que asaltaba comercios en el conurbano bonaerense</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+        </div>
+        <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. POLÍTICA (noticia principal grande + grilla 2x2)
+         ===================================================================== -->
+    <section class="contenedor">
+      <h2 class="titulo-seccion">Política</h2>
+
+      <div class="fila-tags">
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+      </div>
+
+      <div class="politica-grid">
+        <article class="destacada-oscura col-min">
+          <img src="https://via.placeholder.com/700x470?text=Politica" alt="" />
+          <h3>El Gobierno le advirtió a los empresarios que "no apuesten a una devaluación para salvarse"</h3>
+        </article>
+
+        <div class="grilla-2x2 col-min">
+          <article class="mini-card">
+            <h4>Un pasajero le fracturó la mandíbula a golpes a un colectivero porque no le abrió la puerta para bajarse</h4>
+            <span class="hashtag">#INFLACION</span>
+          </article>
+          <article class="mini-card">
+            <h4>Pronóstico del tiempo: vuelven las lluvias y tormentas a Buenos Aires, ¿en qué fecha?</h4>
+            <span class="hashtag">#INFLACION</span>
+          </article>
+          <article class="mini-card">
+            <h4>Pronóstico del tiempo: vuelven las lluvias y tormentas a Buenos Aires, ¿en qué fecha?</h4>
+            <span class="hashtag">#INFLACION</span>
+          </article>
+          <article class="mini-card">
+            <h4>Pronóstico del tiempo: vuelven las lluvias y tormentas a Buenos Aires, ¿en qué fecha?</h4>
+            <span class="hashtag">#INFLACION</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. CARRUSEL INTERMEDIO (NUEVO) — entre Política y Sociedad
+         ===================================================================== -->
+    <section class="contenedor">
+      <div class="carrusel">
+        <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+        <div class="carrusel-pista">
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Nota+1" alt="" />
+            <div class="card-cuerpo">
+              <h3>Dólar en alza: las claves para entender el movimiento del mercado cambiario</h3>
+              <span class="hashtag">#ECONOMÍA</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Nota+2" alt="" />
+            <div class="card-cuerpo">
+              <h3>Transporte: anunciaron nuevos aumentos en colectivos y trenes del AMBA</h3>
+              <span class="hashtag">#TRANSPORTE</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Nota+3" alt="" />
+            <div class="card-cuerpo">
+              <h3>Salud: campaña de vacunación antigripal en los centros de salud porteños</h3>
+              <span class="hashtag">#SALUD</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Nota+4" alt="" />
+            <div class="card-cuerpo">
+              <h3>Tecnología: cuáles son las apps argentinas más descargadas del año</h3>
+              <span class="hashtag">#TECNO</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x200?text=Nota+5" alt="" />
+            <div class="card-cuerpo">
+              <h3>Turismo: los destinos más elegidos para las próximas vacaciones de invierno</h3>
+              <span class="hashtag">#TURISMO</span>
+            </div>
+          </article>
+        </div>
+        <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. SOCIEDAD / DIARIO SHOW (fondo lila/fucsia)
+         ===================================================================== -->
+    <section class="bloque-fucsia">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Sociedad</h2>
+
+        <div class="fila-tags">
+          <a href="#">#FÚTBOL_ARGENTINO</a>
+          <a href="#">#FÚTBOL_ARGENTINO</a>
+          <a href="#">#FÚTBOL_ARGENTINO</a>
+          <a href="#">#FÚTBOL_ARGENTINO</a>
+          <a href="#">#FÚTBOL_ARGENTINO</a>
+        </div>
+
+        <div class="sociedad-grid">
+          <article class="destacada-fucsia col-min">
+            <img src="https://via.placeholder.com/700x460?text=Diario+Show" alt="" />
+            <h3>El desopilante comentario de la hija de Maru Botana cuando le preguntaron si usaba apps de citas</h3>
+          </article>
+
+          <div class="lista-apilada col-min">
+            <article class="item-noticia">
+              <img src="https://via.placeholder.com/180x110?text=Clima" alt="" />
+              <div>
+                <h3>Pronóstico del tiempo: vuelven las lluvias y tormentas a Buenos Aires, ¿en qué fecha?</h3>
+                <span class="hashtag">#INFLACION</span>
+              </div>
+            </article>
+            <article class="item-noticia">
+              <img src="https://via.placeholder.com/180x110?text=Conicet" alt="" />
+              <div>
+                <h3>La expedición científica del CONICET que paralizó a millones de argentinos vuelve al mar profundo</h3>
+                <span class="hashtag">#INFLACION</span>
+              </div>
+            </article>
+            <article class="item-noticia">
+              <img src="https://via.placeholder.com/180x110?text=Sociedad" alt="" />
+              <div>
+                <h3>Tenía baldosas con esvásticas en su casa: lo imputan por vender uniformes militares en redes sociales</h3>
+                <span class="hashtag">#INFLACION</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         9. OPINIÓN - CRÓNICA EN VIVO (tarjetas que llenan el 100% del ancho)
+         ===================================================================== -->
+    <section class="opinion-vivo">
+      <div class="contenedor">
+        <h2 class="titulo-seccion titulo-blanco">Opinión - Crónica en vivo</h2>
+
+        <div class="carrusel">
+          <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+          <div class="carrusel-pista pista-llena">
+            <article class="card-vertical card-vertical--fluida">
+              <div class="placeholder"></div>
+              <button class="boton">BOTON</button>
+            </article>
+            <article class="card-vertical card-vertical--fluida">
+              <div class="placeholder"></div>
+              <button class="boton">BOTON</button>
+            </article>
+            <article class="card-vertical card-vertical--fluida">
+              <div class="placeholder"></div>
+              <button class="boton">BOTON</button>
+            </article>
+            <article class="card-vertical card-vertical--fluida">
+              <div class="placeholder"></div>
+              <button class="boton">BOTON</button>
+            </article>
+          </div>
+          <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         10. RELAX (carrusel: SOLO la 1ª tarjeta es alta; el resto no se estira)
+         ===================================================================== -->
+    <section class="contenedor">
+      <h2 class="titulo-seccion">Relax</h2>
+
+      <div class="fila-tags">
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+      </div>
+
+      <div class="carrusel">
+        <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+        <!-- pista-relax usa align-items: flex-start para que NO se estiren -->
+        <div class="carrusel-pista pista-relax">
+          <article class="card-grande">
+            <img src="https://via.placeholder.com/420x320?text=Receta" alt="" />
+            <div class="card-cuerpo">
+              <h3>La receta infalible de queque fácil que estabas buscando</h3>
+              <a href="#" class="enlace-mas">MÁS...</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x180?text=Milanesas" alt="" />
+            <div class="card-cuerpo">
+              <h3>El corte de cerdo rico y barato que es ideal para preparar milanesas, guisos y estofados</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x180?text=Show" alt="" />
+            <div class="card-cuerpo">
+              <h3>La emoción de Diego Torres al anunciar otro reencuentro con sus fans del Conurbano</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/320x180?text=Relax" alt="" />
+            <div class="card-cuerpo">
+              <h3>Cinco trucos de cocina para ahorrar tiempo en la rutina diaria</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+        </div>
+        <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         11A. MUNDO (cabecera gris + lista izq + bloque publicidad der)
+         ===================================================================== -->
+    <div class="mundo-cabecera">
+      <div class="contenedor">
+        <h2 class="titulo-seccion titulo-blanco">Mundo</h2>
+      </div>
+    </div>
+
+    <section class="contenedor">
+      <div class="fila-tags fila-tags--mundo">
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+        <a href="#">#FÚTBOL_ARGENTINO</a>
+      </div>
+
+      <div class="mundo-grid">
+        <div class="col-min">
+          <article class="item-noticia">
+            <img src="https://via.placeholder.com/180x110?text=Clima" alt="" />
+            <div>
+              <h3>Pronóstico del tiempo: vuelven las lluvias y tormentas a Buenos Aires, ¿en qué fecha?</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="item-noticia">
+            <img src="https://via.placeholder.com/180x110?text=Conicet" alt="" />
+            <div>
+              <h3>La expedición científica del CONICET que paralizó a millones de argentinos vuelve al mar profundo con una nueva misión</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+          <article class="item-noticia">
+            <img src="https://via.placeholder.com/180x110?text=Mundo" alt="" />
+            <div>
+              <h3>Tenía baldosas con esvásticas en su casa: lo imputan por vender uniformes militares en redes sociales</h3>
+              <span class="hashtag">#INFLACION</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bloque de publicidad -->
+        <aside class="publicidad col-min">
+          <div class="banner"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         11B. MEDIOS VINCULADOS (CARRUSEL de pills de colores)
+         ===================================================================== -->
+    <section class="medios">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Medios vinculados</h2>
+
+        <div class="carrusel">
+          <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
+          <div class="carrusel-pista">
+            <a href="#" class="pill negro">FMQ</a>
+            <a href="#" class="pill verde">DEPO</a>
+            <a href="#" class="pill azul">"CM" CANAL DE MÚSICA</a>
+            <a href="#" class="pill rosa">DIARIO SHOW</a>
+            <a href="#" class="pill negro">RADIO CRÓNICA</a>
+          </div>
+          <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       12. FOOTER
+       ======================================================================= -->
+  <footer>
+    <!-- Franja blanca con placeholder para tu logo -->
+    <div class="footer-logo">
+      <div class="logo-placeholder logo-placeholder--footer" title="Insertá acá tu logo">logo cronica</div>
+    </div>
+
+    <!-- Área principal: fondo GRIS OSCURO, texto BLANCO -->
+    <div class="footer-principal">
+      <div class="contenedor">
+        <div class="footer-columnas">
+          <div>
+            <h4>Secciones</h4>
+            <ul>
+              <li><a href="#">Política</a></li>
+              <li><a href="#">Policiales</a></li>
+              <li><a href="#">Economía</a></li>
+              <li><a href="#">Deportes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="#">Quiénes somos</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Publicidad</a></li>
+              <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Seguinos</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">X / Twitter</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Medios vinculados</h4>
+            <ul>
+              <li><a href="#">FMQ</a></li>
+              <li><a href="#">DEPO</a></li>
+              <li><a href="#">CM Canal de Música</a></li>
+              <li><a href="#">Diario Show</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="footer-copy">© 2026 Crónica — Réplica didáctica para estudio. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enlace al archivo JS externo (al final del body para que el HTML ya exista) -->
+  <script src="script.js"></script>
+</body>
+</html>
