@@ -44,7 +44,7 @@
         <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">&#9776;</button>
 
         <!-- PLACEHOLDER PARA TU LOGO (centrado). Reemplazá este div por tu <img>. -->
-        <div class="logo-placeholder" title="Insertá acá tu logo">logo cronica</div>
+        <img src="imagenes/logo cronica.png" alt="logo cronica">
 
         <form class="buscador" onsubmit="return false;">
           <input type="text" placeholder="Buscar..." />
@@ -57,6 +57,43 @@
         </div>
       </div>
     </div>
+
+    <!-- 1A-bis. MENÚ DESPLEGABLE (se abre hacia abajo desde el botón ☰)
+         - Empieza OCULTO con la clase "menu-desplegable--oculto".
+         - El botón ☰ lo muestra/oculta desde script.js.
+         - Es scrolleable: si la lista es más larga que la pantalla, scrollea. -->
+    <nav class="menu-desplegable menu-desplegable--oculto" id="menuDesplegable" aria-label="Menú principal">
+      <ul class="menu-lista">
+        <li><a href="#">Policiales</a></li>
+        <li><a href="#">Política</a></li>
+        <li><a href="#">Paranormal</a></li>
+        <li><a href="#">Salud</a></li>
+        <li><a href="#">Tecnología</a></li>
+        <li><a href="#">Opinión</a></li>
+        <li><a href="#">Sociedad</a></li>
+        <li><a href="#">Cine y Series</a></li>
+        <li><a href="#">Números y Destino</a></li>
+        <li><a href="#">Cocina</a></li>
+        <li><a href="#">Cosa de Locos</a></li>
+        <li><a href="#">Viajes y Escapadas</a></li>
+      </ul>
+
+      <!-- Iconos sociales al pie del menú (SVG en línea, sin dependencias) -->
+      <div class="menu-redes">
+        <a href="#" class="red" aria-label="X">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+        </a>
+        <a href="#" class="red" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.81 3.81 0 0 1-1.38-.9 3.81 3.81 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.5.01-4.74.07-.97.04-1.5.21-1.85.34-.46.18-.8.4-1.15.74-.34.35-.56.69-.74 1.15-.13.35-.3.88-.34 1.85-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.97.21 1.5.34 1.85.18.46.4.8.74 1.15.35.34.69.56 1.15.74.35.13.88.3 1.85.34 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.97-.04 1.5-.21 1.85-.34.46-.18.8-.4 1.15-.74.34-.35.56-.69.74-1.15.13-.35.3-.88.34-1.85.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.97-.21-1.5-.34-1.85a3.1 3.1 0 0 0-.74-1.15 3.1 3.1 0 0 0-1.15-.74c-.35-.13-.88-.3-1.85-.34-1.24-.06-1.59-.07-4.74-.07Zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36Zm5.5-2.86a1.24 1.24 0 1 1 0 2.48 1.24 1.24 0 0 1 0-2.48Z"/></svg>
+        </a>
+        <a href="#" class="red" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.13C19.5 3.85 12 3.85 12 3.85s-7.5 0-9.4.52A3 3 0 0 0 .5 6.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.13c1.9.52 9.4.52 9.4.52s7.5 0 9.4-.52a3 3 0 0 0 2.1-2.13A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.5ZM9.6 15.5v-7l6.2 3.5-6.2 3.5Z"/></svg>
+        </a>
+        <a href="#" class="red" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 2h-3v13.5a3 3 0 1 1-2.4-2.94V9.5A6 6 0 1 0 16.5 15.5V8.9a7.5 7.5 0 0 0 4.5 1.5V7.4a4.5 4.5 0 0 1-4.5-4.5V2Z"/></svg>
+        </a>
+      </div>
+    </nav>
 
     <!-- 1B. Submenú "TEMAS DE HOY" como CARRUSEL horizontal -->
     <nav class="contenedor">
@@ -102,10 +139,11 @@
 
         <!-- Columna izquierda: video en vivo -->
         <div class="hero-vivo">
-          <h2>ÚLTIMAS NOTICIAS - EN VIVO</h2>
+          <!-- Este título lleva a la página de transmisión en vivo -->
+          <a href="en-vivo.html" class="enlace-titulo-vivo"><h2>ÚLTIMAS NOTICIAS - EN VIVO</h2></a>
           <div class="video">
             <span class="etiqueta-live">LIVE</span>
-            <img src="https://via.placeholder.com/720x460?text=EN+VIVO" alt="Transmisión en vivo" />
+            <img src="imagenes/en vivo 1.png" alt="Transmisión en vivo" />
           </div>
         </div>
 
@@ -118,28 +156,28 @@
 
             <div class="carrusel-pista instantes-pista">
               <article class="item-noticia">
-                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <img src="imagenes/EnVivo1.jpg" alt="" />
                 <div>
                   <h3>Paritaria universitaria: el Gobierno y los gremios llegaron a un acuerdo por aumento para docentes y no docentes</h3>
                   <span class="hashtag">#SALARIOS</span>
                 </div>
               </article>
               <article class="item-noticia">
-                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <img src="imagenes/EnVivo2.jpg" alt="" />
                 <div>
                   <h3>Argentina rechaza el proyecto petrolero británico Sea Lion en las Islas Malvinas y advierte acciones legales</h3>
-                  <span class="hashtag">#RECLAMO</span>
+                  <span class="hashtag">#MALVINAS</span>
                 </div>
               </article>
               <article class="item-noticia">
-                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <img src="imagenes/Colectivero1.webp" alt="" />
                 <div>
                   <h3>Reclamo en Berazategui: vecinos se resisten a un desalojo en conflicto</h3>
                   <span class="hashtag">#RECLAMO</span>
                 </div>
               </article>
               <article class="item-noticia">
-                <img src="https://via.placeholder.com/180x110?text=Foto" alt="" />
+                <img src="imagenes/Colectivero2.webp" alt="" />
                 <div>
                   <h3>Suba de tarifas: cómo impactará en las facturas de luz y gas este mes</h3>
                   <span class="hashtag">#TARIFAS</span>
@@ -164,28 +202,28 @@
         <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
         <div class="carrusel-pista">
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Accidente" alt="" />
+            <img src="imagenes/Colectivero4.webp" alt="" />
             <div class="card-cuerpo">
               <h3>Se bajó del coche para pelear con un motociclista, se olvidó de poner el freno de mano y chocó al auto de atrás</h3>
               <span class="hashtag">#ACCIDENTES</span>
             </div>
           </article>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Educacion" alt="" />
+            <img src="imagenes/ni idea 1.png" alt="" />
             <div class="card-cuerpo">
               <h3>Luego de tres años de conflicto, el Gobierno y las universidades firmaron un acuerdo por aumento de fondos y salarios</h3>
               <span class="hashtag">#EDUCACIÓN</span>
             </div>
           </article>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Inflacion" alt="" />
+            <img src="imagenes/Momento3.png" alt="" />
             <div class="card-cuerpo">
               <h3>Este jueves se conocerá la inflación de mayo: la estimación de las consultoras privadas</h3>
               <span class="hashtag">#INFLACION</span>
             </div>
           </article>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Gaspi" alt="" />
+            <img src="imagenes/Captura de pantalla 2026-06-15 170853 1.png" alt="" />
             <div class="card-cuerpo">
               <h3>La estremecedora historia familiar de Gaspi y una verdad sobre su mamá que emociona hasta las lágrimas</h3>
               <span class="hashtag">#GASPI</span>
@@ -213,11 +251,11 @@
         <div class="carrusel">
           <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
           <div class="carrusel-pista">
-            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+1" alt="Tapa de diario" /></article>
-            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+2" alt="Tapa de diario" /></article>
-            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+3" alt="Tapa de diario" /></article>
-            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+4" alt="Tapa de diario" /></article>
-            <article class="tapa"><img src="https://via.placeholder.com/330x560?text=Tapa+5" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="imagenes/Tapa1.webp" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="imagenes/Tapa2.webp" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="imagenes/Tapa3.webp" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="imagenes/Tapa4.webp" alt="Tapa de diario" /></article>
+            <article class="tapa"><img src="imagenes/Tapa4.webp" alt="Tapa de diario" /></article>
           </div>
           <button class="carrusel-flecha siguiente" aria-label="Siguiente">&#8250;</button>
         </div>
@@ -239,7 +277,7 @@
         <div class="col-min">
           <h2 class="titulo-seccion">Policiales</h2>
           <article class="noticia-principal">
-            <img src="https://via.placeholder.com/640x400?text=Policiales" alt="" />
+            <img src="imagenes/Colectivero3.webp" alt="" />
             <div class="cuerpo">
               <h3>El Gobierno le advirtió a los empresarios que "no apuesten a una devaluación para salvarse"</h3>
               <span class="hashtag">#INFLACION</span>
@@ -278,35 +316,36 @@
         <button class="carrusel-flecha anterior" aria-label="Anterior">&#8249;</button>
         <div class="carrusel-pista">
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Cocaina" alt="" />
+            <img src="imagenes/Colectivero12 .webp" alt="" />
             <div class="card-cuerpo">
               <h3>Enterró 60 kilos de cocaína en el patio de su mamá: la mujer se desmayó en el operativo y él fue detenido</h3>
               <span class="hashtag">#INFLACION</span>
             </div>
           </article>
-          <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Colectivo" alt="" />
+          <!-- Esta tarjeta lleva a la página del artículo completo -->
+          <a href="noticia.html" class="card card-enlace">
+            <img src="imagenes/Colectivero9.png" alt="" />
             <div class="card-cuerpo">
               <h3>Un pasajero le fracturó la mandíbula a golpes a un colectivero porque no le abrió la puerta para bajarse</h3>
               <span class="hashtag">#INFLACION</span>
             </div>
-          </article>
+          </a>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Robo" alt="" />
+            <img src="imagenes/Colectivero10.webp" alt="" />
             <div class="card-cuerpo">
               <h3>¡Video! Así rompió una vidriera a golpes para robar 300 mil pesos en pan y quesos</h3>
               <span class="hashtag">#INFLACION</span>
             </div>
           </article>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Mendoza" alt="" />
+            <img src="imagenes/Colectivero6.webp" alt="" />
             <div class="card-cuerpo">
               <h3>En Mendoza, tomaron a una estudiante del cuello para someterla</h3>
               <span class="hashtag">#INFLACION</span>
             </div>
           </article>
           <article class="card">
-            <img src="https://via.placeholder.com/320x200?text=Policial" alt="" />
+            <img src="imagenes/Colectivero5.webp" alt="" />
             <div class="card-cuerpo">
               <h3>Detuvieron a una banda que asaltaba comercios en el conurbano bonaerense</h3>
               <span class="hashtag">#INFLACION</span>
@@ -616,7 +655,7 @@
   <footer>
     <!-- Franja blanca con placeholder para tu logo -->
     <div class="footer-logo">
-      <div class="logo-placeholder logo-placeholder--footer" title="Insertá acá tu logo">logo cronica</div>
+      <img src="imagenes/logo cronica.png" alt="logo cronica">
     </div>
 
     <!-- Área principal: fondo GRIS OSCURO, texto BLANCO -->
@@ -670,3 +709,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
