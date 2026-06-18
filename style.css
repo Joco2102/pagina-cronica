@@ -102,8 +102,26 @@ a   { text-decoration: none; color: inherit; }
 .logo-placeholder--footer { margin: 0 auto; }
 
 /* ==========================================================================
+   ENLACES DE NAVEGACIÓN A OTRAS PÁGINAS
+   --------------------------------------------------------------------------
+   Un <a> es "en línea" por defecto. Cuando lo usamos como tarjeta o como
+   título clickeable, lo pasamos a block para que ocupe su caja completa y
+   herede el color del texto (sin subrayado ni azul por defecto). */
+.card-enlace,
+.enlace-titulo-vivo {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.card-enlace:hover { opacity: 0.92; }   /* leve realce al pasar el mouse */
+
+/* ==========================================================================
    1A. CINTA SUPERIOR ROJA
    ========================================================================== */
+/* position: relative en el header sirve de "ancla" para posicionar el menú
+   desplegable de forma absoluta justo debajo del botón ☰. */
+header { position: relative; z-index: 20; }
+
 .barra-superior {
   background-color: var(--rojo-cronica);
   border-radius: 40px;
@@ -161,6 +179,64 @@ a   { text-decoration: none; color: inherit; }
 }
 
 /* ==========================================================================
+   1A-bis. MENÚ DESPLEGABLE (panel oscuro que cae desde el botón ☰)
+   ==========================================================================
+   - Se posiciona ABSOLUTO respecto del <header> (que es position:relative).
+   - top lo deja justo debajo de la cinta roja; left lo alinea a la izquierda.
+   - max-height + overflow-y:auto lo hacen SCROLLEABLE cuando la lista es larga. */
+.menu-desplegable {
+  position: absolute;
+  top: 88px;                 /* debajo de la cinta roja */
+  left: 20px;                /* alineado con el botón ☰ */
+  width: 360px;
+  max-width: calc(100% - 40px);
+  background: #1c1c1c;
+  border-radius: 0 0 14px 14px;
+  padding: 18px 26px 26px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;          /* <- scroll vertical del menú */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Clase que activa/desactiva el menú desde script.js */
+.menu-desplegable--oculto { display: none; }
+
+/* Lista de enlaces */
+.menu-lista { list-style: none; }
+
+/* Cada ítem lleva una LÍNEA SEPARADORA recta (border-bottom).
+   Un borde CSS siempre es perfectamente recto. */
+.menu-lista li { border-bottom: 1px solid #4a4a4a; }
+.menu-lista li:last-child { border-bottom: none; }
+
+.menu-lista a {
+  display: block;
+  color: var(--blanco);
+  font-style: italic;        /* tipografía itálica como en el diseño */
+  font-weight: 800;
+  font-size: 22px;
+  padding: 20px 2px;
+}
+.menu-lista a:hover { color: #ff6b61; }
+
+/* Fila de iconos sociales al pie del menú */
+.menu-redes {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+.menu-redes .red {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--blanco);
+  color: var(--negro);       /* currentColor del SVG hereda este color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-redes .red:hover { background: #e0e0e0; }
+
+/* ==========================================================================
    1B. SUBMENÚ "TEMAS DE HOY" (carrusel que llena el ancho sin huecos)
    ========================================================================== */
 .submenu {
@@ -175,9 +251,6 @@ a   { text-decoration: none; color: inherit; }
   flex-shrink: 0;
 }
 .submenu-carrusel { flex: 1; }   /* el carrusel ocupa el resto de la fila */
-
-/* Clase que aplica/quita el botón de menú (☰) desde script.js */
-.submenu--oculto { display: none; }
 
 /* Cada ítem: flex:1 reparte el ancho disponible (sin huecos a los lados);
    min-width evita que se aplasten y activa el scroll cuando no entran. */
@@ -591,3 +664,4 @@ a   { text-decoration: none; color: inherit; }
   .titulo-seccion { font-size: 30px; }
   .logo-placeholder { width: 150px; height: 48px; }
 }
+
